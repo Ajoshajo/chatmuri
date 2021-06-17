@@ -547,7 +547,7 @@ var render = function() {
         { staticClass: "text-center mb-4" },
         [
           _c(
-            "transition",
+            "transition-group",
             { attrs: { name: "zoom-fade", mode: "out-in", appear: "" } },
             [
               _c("h4", [_vm._v("Register")]),
