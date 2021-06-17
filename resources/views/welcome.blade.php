@@ -10,9 +10,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo%20Chettan%202:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 </head>
 
