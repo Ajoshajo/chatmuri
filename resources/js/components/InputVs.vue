@@ -156,7 +156,6 @@ export default {
             background: rgba(var(--vs-gray-1))
         &--after
             transform: translate(6px, -6px)
-
         ~ .label-vs:not(.label-vs--placeholder)
             opacity: 0
             left: 20px
