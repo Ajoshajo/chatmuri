@@ -2,29 +2,33 @@
   <div class="row justify-content-center">
     <div class="col-10 col-lg-5 col-xl-5 col-md-6">
       <div class="text-center mb-4">
-        <h4>Register</h4>
-        <p class="text-muted mb-4">Sign up to continue to ചാറ്റ് മുറി.</p>
-        <div class="new-card p-4">
-          <div class="pt-4">
-            <input-vs type="text" labelPlaceholder="User Name">
-              <div slot="icon"><i class="bx bx-user"></i></div>
-            </input-vs>
+        <transition name="zoom-fade" mode="out-in" appear>
+          <h4>Register</h4>
+          <p class="text-muted mb-4">Sign up to continue to ചാറ്റ് മുറി.</p>
+        </transition>
+        <transition name="zoom-fade" mode="out-in" appear>
+          <div class="new-card p-4">
+            <div class="pt-4">
+              <input-vs type="text" labelPlaceholder="User Name">
+                <div slot="icon"><i class="bx bx-user"></i></div>
+              </input-vs>
+            </div>
+            <div class="pt-4">
+              <input-vs type="password" labelPlaceholder="Password">
+                <div slot="icon"><i class="bx bx-lock"></i></div>
+              </input-vs>
+            </div>
+            <div class="pt-4">
+              <input-vs type="password" labelPlaceholder="Confirm Password">
+                <div slot="icon"><i class="bx bx-lock"></i></div>
+              </input-vs>
+            </div>
+            <div class="center pl-4 pl-md-6">
+              <vs-checkbox> Remember Me ? </vs-checkbox>
+            </div>
+            <vs-button block active>Register</vs-button>
           </div>
-          <div class="pt-4">
-            <input-vs type="password" labelPlaceholder="Password">
-              <div slot="icon"><i class="bx bx-lock"></i></div>
-            </input-vs>
-          </div>
-          <div class="pt-4">
-            <input-vs type="password" labelPlaceholder="Confirm Password">
-              <div slot="icon"><i class="bx bx-lock"></i></div>
-            </input-vs>
-          </div>
-          <div class="center pl-4 pl-md-6">
-            <vs-checkbox> Remember Me ? </vs-checkbox>
-          </div>
-          <vs-button block active>Register</vs-button>
-        </div>
+        </transition>
         <div class="mt-5 text-center">
           <p>
             Do you have an account ?

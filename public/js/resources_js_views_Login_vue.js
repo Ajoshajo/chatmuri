@@ -110,6 +110,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -546,103 +550,123 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c("div", { staticClass: "col-10 col-lg-5 col-xl-5 col-md-6" }, [
-      _c("div", { staticClass: "text-center mb-4" }, [
-        _c("h4", [_vm._v("Login")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-muted mb-4" }, [
-          _vm._v("Sign in to continue to ചാറ്റ് മുറി.")
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "new-card p-4" },
-          [
-            _c(
-              "div",
-              { staticClass: "pt-4" },
-              [
-                _c(
-                  "input-vs",
-                  {
-                    attrs: { type: "text", "label-placeholder": "EMail" },
-                    model: {
-                      value: _vm.email,
-                      callback: function($$v) {
-                        _vm.email = $$v
-                      },
-                      expression: "email"
-                    }
-                  },
-                  [
-                    _c("div", { attrs: { slot: "icon" }, slot: "icon" }, [
-                      _c("i", { staticClass: "bx bx-mail-send" })
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "pt-4" },
-              [
-                _c(
-                  "input-vs",
-                  {
-                    attrs: { type: "password", labelPlaceholder: "Password" },
-                    model: {
-                      value: _vm.password,
-                      callback: function($$v) {
-                        _vm.password = $$v
-                      },
-                      expression: "password"
-                    }
-                  },
-                  [
-                    _c("div", { attrs: { slot: "icon" }, slot: "icon" }, [
-                      _c("i", { staticClass: "bx bx-lock" })
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "center pl-4" },
-              [_c("vs-checkbox", [_vm._v(" Remember Me ? ")])],
-              1
-            ),
-            _vm._v(" "),
-            _c("vs-button", { attrs: { block: "", active: "" } }, [
-              _vm._v("Login")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-5 text-center" }, [
+      _c(
+        "div",
+        { staticClass: "text-center mb-4" },
+        [
           _c(
-            "p",
+            "transition",
+            { attrs: { name: "zoom-fade", mode: "out-in", appear: "" } },
             [
-              _vm._v("\n          Don't have an account ?\n          "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "font-weight-medium text-primary",
-                  attrs: { to: { name: "register" } }
-                },
-                [_vm._v("\n            Signup now\n          ")]
-              )
-            ],
-            1
+              _c("h4", [_vm._v("Login")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-muted mb-4" }, [
+                _vm._v("Sign in to continue to ചാറ്റ് മുറി.")
+              ])
+            ]
           ),
           _vm._v(" "),
-          _vm._m(0)
-        ])
-      ])
+          _c(
+            "transition",
+            { attrs: { name: "zoom-fade", mode: "out-in", appear: "" } },
+            [
+              _c(
+                "div",
+                { staticClass: "new-card p-4" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "pt-4" },
+                    [
+                      _c(
+                        "input-vs",
+                        {
+                          attrs: { type: "text", "label-placeholder": "EMail" },
+                          model: {
+                            value: _vm.email,
+                            callback: function($$v) {
+                              _vm.email = $$v
+                            },
+                            expression: "email"
+                          }
+                        },
+                        [
+                          _c("div", { attrs: { slot: "icon" }, slot: "icon" }, [
+                            _c("i", { staticClass: "bx bx-mail-send" })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "pt-4" },
+                    [
+                      _c(
+                        "input-vs",
+                        {
+                          attrs: {
+                            type: "password",
+                            labelPlaceholder: "Password"
+                          },
+                          model: {
+                            value: _vm.password,
+                            callback: function($$v) {
+                              _vm.password = $$v
+                            },
+                            expression: "password"
+                          }
+                        },
+                        [
+                          _c("div", { attrs: { slot: "icon" }, slot: "icon" }, [
+                            _c("i", { staticClass: "bx bx-lock" })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "center pl-4" },
+                    [_c("vs-checkbox", [_vm._v(" Remember Me ? ")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("vs-button", { attrs: { block: "", active: "" } }, [
+                    _vm._v("Login")
+                  ])
+                ],
+                1
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-5 text-center" }, [
+            _c(
+              "p",
+              [
+                _vm._v("\n          Don't have an account ?\n          "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "font-weight-medium text-primary",
+                    attrs: { to: { name: "register" } }
+                  },
+                  [_vm._v("\n            Signup now\n          ")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ],
+        1
+      )
     ])
   ])
 }

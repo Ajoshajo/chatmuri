@@ -2,28 +2,32 @@
   <div class="row justify-content-center">
     <div class="col-10 col-lg-5 col-xl-5 col-md-6">
       <div class="text-center mb-4">
-        <h4>Login</h4>
-        <p class="text-muted mb-4">Sign in to continue to ചാറ്റ് മുറി.</p>
-        <div class="new-card p-4">
-          <div class="pt-4">
-            <input-vs type="text" v-model="email" label-placeholder="EMail">
-              <div slot="icon"><i class="bx bx-mail-send"></i></div>
-            </input-vs>
+        <transition name="zoom-fade" mode="out-in" appear>
+          <h4>Login</h4>
+          <p class="text-muted mb-4">Sign in to continue to ചാറ്റ് മുറി.</p>
+        </transition>
+        <transition name="zoom-fade" mode="out-in" appear>
+          <div class="new-card p-4">
+            <div class="pt-4">
+              <input-vs type="text" v-model="email" label-placeholder="EMail">
+                <div slot="icon"><i class="bx bx-mail-send"></i></div>
+              </input-vs>
+            </div>
+            <div class="pt-4">
+              <input-vs
+                type="password"
+                v-model="password"
+                labelPlaceholder="Password"
+              >
+                <div slot="icon"><i class="bx bx-lock"></i></div>
+              </input-vs>
+            </div>
+            <div class="center pl-4">
+              <vs-checkbox> Remember Me ? </vs-checkbox>
+            </div>
+            <vs-button block active>Login</vs-button>
           </div>
-          <div class="pt-4">
-            <input-vs
-              type="password"
-              v-model="password"
-              labelPlaceholder="Password"
-            >
-              <div slot="icon"><i class="bx bx-lock"></i></div>
-            </input-vs>
-          </div>
-          <div class="center pl-4">
-            <vs-checkbox> Remember Me ? </vs-checkbox>
-          </div>
-          <vs-button block active>Login</vs-button>
-        </div>
+        </transition>
         <div class="mt-5 text-center">
           <p>
             Don't have an account ?
