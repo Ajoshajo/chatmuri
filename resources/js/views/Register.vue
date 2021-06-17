@@ -2,10 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-10 col-lg-5 col-xl-5 col-md-6">
       <div class="text-center mb-4">
-        <transition-group name="zoom-fade" mode="out-in" appear>
+        <transition name="zoom-fade" mode="out-in" appear>
           <h4>Register</h4>
+        </transition>
           <p class="text-muted mb-4">Sign up to continue to ചാറ്റ് മുറി.</p>
-        </transition-group>
+        
         <transition name="zoom-fade" mode="out-in" appear>
           <div class="new-card p-4">
             <div class="pt-4">

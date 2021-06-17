@@ -115,6 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -547,16 +548,14 @@ var render = function() {
         { staticClass: "text-center mb-4" },
         [
           _c(
-            "transition-group",
+            "transition",
             { attrs: { name: "zoom-fade", mode: "out-in", appear: "" } },
-            [
-              _c("h4", [_vm._v("Register")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-muted mb-4" }, [
-                _vm._v("Sign up to continue to ചാറ്റ് മുറി.")
-              ])
-            ]
+            [_c("h4", [_vm._v("Register")])]
           ),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-muted mb-4" }, [
+            _vm._v("Sign up to continue to ചാറ്റ് മുറി.")
+          ]),
           _vm._v(" "),
           _c(
             "transition",
