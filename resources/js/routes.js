@@ -8,9 +8,10 @@ const router = new VueRouter({
     mode: 'history',
     routes: [{
         path: '/',
-        name: 'home',
-        component: () =>
-            import ('./views/Home.vue')
+        redirect: { name: 'login' }
+        // name: 'home',
+        // component: () =>
+        //     import ('./views/Home.vue')
     }, {
         path: '',
         component: () =>
