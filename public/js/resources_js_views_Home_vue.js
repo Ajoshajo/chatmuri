@@ -22,7 +22,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 52858b74bfadfe9ea6e7cd0f9e694f42f2bfa9eb
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     user: function user() {
@@ -136,6 +139,7 @@ var render = function() {
     _vm._v(" "),
     _vm.user != null
       ? _c("div", [
+<<<<<<< HEAD
           _vm._v(
             "\n    " +
               _vm._s(_vm.user.name) +
@@ -143,6 +147,9 @@ var render = function() {
               _vm._s(_vm.user.email) +
               "\n    "
           ),
+=======
+          _vm._v("\n    " + _vm._s(_vm.user.name) + "\n    "),
+>>>>>>> 52858b74bfadfe9ea6e7cd0f9e694f42f2bfa9eb
           _c(
             "div",
             [
