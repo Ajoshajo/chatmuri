@@ -28,7 +28,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $token = Auth::user()->createToken('chat')->accessToken;
-            return response()->json(['message' => 'Successfully Logged In', 'user'=>auth()->user(),'token' => $token]);
+            return response()->json(['message' => 'Successfully Logged In', 'user' => auth()->user(), 'token' => $token]);
         }
         return response()->json(['message' => 'Invalid details!'], 400);
     }
@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         $token = $user->createToken('chat')->accessToken;
 
-        return response()->json(['message' => 'Successfully Registered', 'token' => $token]);
+        return response()->json(['message' => 'Successfully Registered', 'user' => $user, 'token' => $token]);
 
     }
 
@@ -73,7 +73,8 @@ class LoginController extends Controller
 
     }
 
-    public function user(Request $request){
+    public function user(Request $request)
+    {
         return $request->user();
     }
 }

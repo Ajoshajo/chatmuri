@@ -36,12 +36,14 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requireLogin) && store.getters.isLoggedIn == false) {
-        // next({
-        //     name: 'login'
-        // })
+    if (to.matched.some(record => record.meta.requireLogin) && !window.token) {
+        next({
+            name: 'login'
+        })
     }
     next()
+
+
 })
 
 export default router;

@@ -74,6 +74,11 @@ export default {
       color: "danger",
     };
   },
+  created(){
+      if(window.token){
+          this.$router.replace({name:'home'})
+      }
+  },
   computed: {
     loginDisabled() {
       return this.disabled;
@@ -106,7 +111,7 @@ export default {
             icon: "success",
           });
           this.$store.dispatch("login", res.data);
-          this.$router.push({name:'home'})
+          this.$router.replace({name:'home'})
         })
         .catch((err) => {
           console.log(err);

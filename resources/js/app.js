@@ -25,6 +25,7 @@ Vue.use(VueSweetalert2)
 window.axios.defaults.baseURL = '/api/v1/'
 const token = localStorage.getItem('token')
 if (token) {
+    window.token = token
     window.axios.defaults.headers.common['Authorization'] = "Bearer " +
         token
 }
