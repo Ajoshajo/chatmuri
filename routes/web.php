@@ -13,11 +13,13 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('import',[HomeController::class,'import']);
+Route::get('export',[HomeController::class,'export']);
 Route::get('mail',[HomeController::class,'mail']);
 Route::get('/{any?}', function () {
     return view('welcome');
-})->where('any','.*');
+})->where('any','^(?!api).*$');
 
 // Auth::routes();
 

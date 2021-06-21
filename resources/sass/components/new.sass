@@ -1,0 +1,119 @@
+.input-vs
+    &:focus
+        background: rgba(var(--vs-gray-3),1)
+        padding-left: 15px
+        .input-vs--has-icon:not(.inputvs--has-icon--after)
+            padding-left: 40px
+        ~ .icon-vs
+            box-shadow: 15px 10px 10px -10px rgba(0,0,0, var(shadow-opacity))
+        ~ .label-vs:not(.label-vs--placeholder)
+            left: 44px
+        ~ .icon-vs
+            box-shadow: -15px 10px 10px -10px rgba(0,0,0, var(shadow-opacity))
+            transform: translate(-6px, -6px)
+            background: rgba(var(--vs-gray-1))
+        &--after
+            transform: translate(6px, -6px)
+        ~ .label-vs:not(.label-vs--placeholder)
+            opacity: 0
+            left: 20px
+        ~ .label-vs--placeholder
+            opacity: 1
+            visibility: visible
+            pointer-events: auto
+            transform: translate(-3%, -67%)
+            font-size: .75rem
+
+
+.input-parent
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-item-align: center
+    align-self: center
+    -webkit-box-pack: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-box-orient: vertical
+    -webkit-box-direction: normal
+    -ms-flex-direction: column
+    flex-direction: row
+    position: relative
+
+.icon-vs
+    position: absolute
+    right: auto
+    width: 36px
+    height: 36px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-box-pack: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-box-shadow: 12px 0px 10px -10px rgba(0, 0, 0, var(--vs-shadow-opacity))
+    box-shadow: 12px 0px 10px -10px rgba(0, 0, 0, var(--vs-shadow-opacity))
+    -webkit-transition: all 0.25s ease
+    transition: all 0.25s ease
+    border-radius: inherit
+    background: rgba(var(--vs-gray-2), 1)
+    pointer-events: none
+    left: 0px
+
+.input-vs--has-icon
+    padding-left: 38px !important
+
+.input-vs--has-icon~.label-vs
+    left: 44px
+
+.label-vs
+    position: absolute
+    left: 13px
+    font-size: 0.8rem
+    -webkit-transition: all 0.25s ease
+    transition: all 0.25s ease
+    cursor: text
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    pointer-events: none
+    width: 100%
+    height: 100%
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-box-pack: start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    opacity: 0.4
+
+.content-vs
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-box-pack: start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    position: relative
+    border-radius: 12px
+
+.input-vs
+    border: 2px solid transparent
+    background: rgba(var(--vs-gray-2), 1)
+    color: rgba(var(--vs-text), 1)
+    padding: 7px 13px
+    border-radius: inherit
+    -webkit-transition: all 0.25s ease
+    transition: all 0.25s ease
+    padding-left: 10px
+

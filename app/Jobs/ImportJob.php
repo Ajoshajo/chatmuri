@@ -34,10 +34,10 @@ class ImportJob implements ShouldQueue
         // $collection = (new FastExcel)->import('file.xlsx');
         $this->collection->each(function ($line) {
 
-            $password = hash('sha512', $line['REG. NUMBER']);
-            $gender = $line['GENDER'] == 'Female' ? 1 : 0;
+            $password = hash('sha512', $line['Reg Num']);
+            $gender = $line['Gender'] == 'female' ? 1 : 0;
 
-            DB::table('student')->insertOrIgnore(['rollno' => $line['REG. NUMBER'], 'name' => $line['APPLICANT NAME'], 'email' => $line['EMAIL'], 'address' => $line['ADDRESS'], 'password' => $password, 'active' => 2, 'classesID' => 4, 'gender' => $gender, 'phone' => $line['MOBILE']]);
+            DB::table('student')->insertOrIgnore(['rollno' => $line['Reg Num'], 'name' => $line['Name'], 'email' => $line['Email id'],  'password' => $password, 'active' => 2, 'classesID' => 4, 'gender' => $gender, 'phone' => $line['Ph No']]);
             // return false;
         });
     }

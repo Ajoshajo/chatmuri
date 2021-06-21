@@ -29,7 +29,7 @@ class Mail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.mail')
-        ->attach(public_path().'/KSCSA INSTRUCTION PDF-min.pdf');
+        return $this->markdown('emails.mail');
+        // ->attach(public_path().'/KSCSA INSTRUCTION PDF-min.pdf');
     }
 }

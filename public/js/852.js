@@ -1,0 +1,1 @@
+(self.webpackChunk=self.webpackChunk||[]).push([[852],{852:(e,t,s)=>{"use strict";s.r(t),s.d(t,{default:()=>u});const n={computed:{user:function(){return this.$store.getters.getUser}}};const u=(0,s(900).Z)(n,(function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",[e._v("Home "+e._s(e.user.name))])}),[],!1,null,null,null).exports}}]);

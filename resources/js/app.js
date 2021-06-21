@@ -8,17 +8,31 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 import Vue from 'vue';
-import VueMomentsAgo from 'vue-moments-ago'
+import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
 import router from './routes'
 import Vuesax from 'vuesax'
-import 'vuesax/dist/vuesax.css'
-import 'boxicons/css/boxicons.min.css'
+import Toast from 'vue-easy-toast'
+import VueSweetalert2 from 'vue-sweetalert2'
+import store from './store'
 
-Vue.use(Vuesax);
+
+Vue.use(Vuesax)
+Vue.use(Toast)
+Vue.use(VueCompositionApi)
+Vue.use(VueSweetalert2)
+
+window.axios.defaults.baseURL = '/api/v1/'
+const token = localStorage.getItem('token')
+if (token) {
+    window.axios.defaults.headers.common['Authorization'] = "Bearer " +
+        token
+}
+
 
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')
 

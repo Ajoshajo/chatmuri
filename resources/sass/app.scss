@@ -1,8 +1,16 @@
 // Fonts
-@import url('https://fonts.google.com/download?family=Baloo%20Chettan%202');
+@import url("https://fonts.google.com/download?family=Baloo%20Chettan%202");
 // Variables
-@import 'variables';
+@import "variables";
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+//main css
+@import "./components/_root";
 //transition
-@import './transition.scss';
+@import "./transition.scss";
+//vuesax
+@import "~vuesax/dist/vuesax.css";
+//boxicon
+@import "~boxicons/css/boxicons.min.css";
+//sweet alert
+@import '~sweetalert2/dist/sweetalert2.min.css';
