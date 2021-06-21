@@ -35,6 +35,7 @@ const mutations = {
         state.user = data.user
         state.token = data.token
         localStorage.setItem('token', data.token)
+        window.token = data.token
         window.axios.defaults.headers.common['Authorization'] = "Bearer " +
             data.token
     },

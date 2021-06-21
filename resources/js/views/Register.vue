@@ -78,6 +78,11 @@
 import InputVs from "../components/InputVs";
 export default {
   components: { InputVs },
+  created(){
+      if(window.token){
+          this.$router.replace({name:'home'})
+      }
+  },
   data() {
     return {
       data: {
@@ -115,6 +120,17 @@ export default {
         .then((res) => {
           this.disabled = false;
           loading.close();
+          this.$swal({
+            title: res.data.message,
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: "success",
+          });
+          this.$store.dispatch("login", res.data);
+          this.$router.replace({name:'home'})
         })
         .catch((err) => {
           loading.close();

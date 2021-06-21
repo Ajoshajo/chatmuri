@@ -1,5 +1,14 @@
 <template>
-  <div>Home {{ user.name }}</div>
+  <div>
+    Home <br />
+    <div v-if="user != null">
+      {{ user.name }}
+      {{ user.email }}
+      <div>
+        <vs-button @click="logout">Logout</vs-button>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -8,5 +17,12 @@ export default {
       return this.$store.getters.getUser;
     },
   },
+  methods:{
+      logout(){
+          this.$store.dispatch('logout')
+          window.token = null
+          this.$router.replace({name:'login'})
+      }
+  }
 };
 </script>

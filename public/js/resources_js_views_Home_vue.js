@@ -14,10 +14,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     user: function user() {
       return this.$store.getters.getUser;
+    }
+  },
+  methods: {
+    logout: function logout() {
+      this.$store.dispatch('logout');
+      window.token = null;
+      this.$router.replace({
+        name: 'login'
+      });
     }
   }
 });
@@ -112,7 +130,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Home " + _vm._s(_vm.user.name))])
+  return _c("div", [
+    _vm._v("\n  Home "),
+    _c("br"),
+    _vm._v(" "),
+    _vm.user != null
+      ? _c("div", [
+          _vm._v(
+            "\n    " +
+              _vm._s(_vm.user.name) +
+              "\n    " +
+              _vm._s(_vm.user.email) +
+              "\n    "
+          ),
+          _c(
+            "div",
+            [
+              _c("vs-button", { on: { click: _vm.logout } }, [_vm._v("Logout")])
+            ],
+            1
+          )
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -150,6 +150,13 @@ __webpack_require__.r(__webpack_exports__);
       color: "danger"
     };
   },
+  created: function created() {
+    if (window.token) {
+      this.$router.replace({
+        name: 'home'
+      });
+    }
+  },
   computed: {
     loginDisabled: function loginDisabled() {
       return this.disabled;
@@ -185,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$store.dispatch("login", res.data);
 
-        _this.$router.push({
+        _this.$router.replace({
           name: 'home'
         });
       })["catch"](function (err) {

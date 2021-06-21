@@ -154,6 +154,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     InputVs: _components_InputVs__WEBPACK_IMPORTED_MODULE_0__.default
   },
+  created: function created() {
+    if (window.token) {
+      this.$router.replace({
+        name: 'home'
+      });
+    }
+  },
   data: function data() {
     return {
       data: {
@@ -191,6 +198,22 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("register", this.data).then(function (res) {
         _this.disabled = false;
         loading.close();
+
+        _this.$swal({
+          title: res.data.message,
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          icon: "success"
+        });
+
+        _this.$store.dispatch("login", res.data);
+
+        _this.$router.replace({
+          name: 'home'
+        });
       })["catch"](function (err) {
         loading.close();
         _this.disabled = false;
