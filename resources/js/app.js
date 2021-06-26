@@ -12,13 +12,11 @@ import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
 import router from './routes'
 import Vuesax from 'vuesax'
-import Toast from 'vue-easy-toast'
 import VueSweetalert2 from 'vue-sweetalert2'
 import store from './store'
 
 
 Vue.use(Vuesax)
-Vue.use(Toast)
 Vue.use(VueCompositionApi)
 Vue.use(VueSweetalert2)
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="vs-parent">
+  <div class="input-main">
     <div class="input-parent">
       <div class="content-vs">
         <input
@@ -7,10 +7,11 @@
           class="input-vs"
           @input="handleInput"
           :class="{ 'input-vs--has-icon': isIcon }"
-          v-model="value"
+          v-model="invalue"
+          :value="value"
         />
         <label
-          v-if="value == ''"
+          v-if="invalue == ''"
           class="label-vs"
           :class="{ 'label-vs--placeholder': getlabelPlaceholder }"
           >{{ labelPlaceholder || placeholder }}</label
@@ -25,7 +26,7 @@
 </template>
 <script>
 export default {
-  props: ["type", "placeholder", "label-placeholder"],
+  props: ["type", "placeholder", "label-placeholder",'value'],
   name: "input-vs",
   computed: {
     getlabelPlaceholder() {
@@ -37,12 +38,12 @@ export default {
   },
   data() {
     return {
-      value: "",
+      invalue: this.value,
     };
   },
   methods: {
     handleInput(e) {
-      this.$emit("input", this.value);
+      this.$emit("input", this.invalue);
     },
   },
 };
