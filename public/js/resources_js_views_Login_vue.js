@@ -154,7 +154,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     if (window.token) {
       this.$router.replace({
-        name: 'home'
+        name: "home"
       });
     }
   },
@@ -184,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$swal({
           title: res.data.message,
           toast: true,
-          position: "top-end",
+          position: "top-center",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$store.dispatch("login", res.data);
 
         _this.$router.replace({
-          name: 'home'
+          name: "home"
         });
       })["catch"](function (err) {
         console.log(err);

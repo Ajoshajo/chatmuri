@@ -1,0 +1,163 @@
+.chat-conversation .right .conversation-list .chat-time {
+    text-align: left;
+    color: #7a7f9a;
+}
+
+.chat-conversation .right .conversation-list .ctext-wrap .ctext-wrap-content {
+    order: 2;
+    background-color: #fff;
+    color: #343a40;
+    text-align: right;
+    border-radius: 8px 8px 0px 8px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .right .conversation-list .ctext-wrap .ctext-wrap-content:before {
+    border: 5px solid transparent;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    left: auto;
+    right: 0px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .right .conversation-list .chat-avatar {
+    order: 3;
+    margin-right: 0px;
+    margin-left: 16px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .conversation-list .chat-avatar {
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .right .conversation-list {
+    float: right;
+    text-align: right;
+}
+
+.chat-conversation .conversation-list .ctext-wrap-content:before {
+    content: "";
+    position: absolute;
+    border: 5px solid transparent;
+    border-left-color: #7269ef;
+    border-top-color: #7269ef;
+    left: 0;
+    bottom: -10px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .conversation-list .chat-time {
+    font-size: 12px;
+    margin-top: 4px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.chat-conversation .conversation-list .ctext-wrap-content {
+    padding: 12px 20px;
+    background-color: #7269ef;
+    border-radius: 8px 8px 8px 0;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+}
+
+.chat-conversation .conversation-list .ctext-wrap {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.chat-conversation .conversation-list .user-chat-content {
+    margin-left: 10px;
+}
+
+.chat-conversation .conversation-list {
+    margin-bottom: 24px;
+    display: inline-flex;
+    position: relative;
+    align-items: flex-end;
+}
+
+.chat-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.chat-conversation li {
+    clear: both;
+}
+
+@media (min-width: 576px) {
+    .chat-conversation {
+        max-height: calc(100vh - 174px) !important;
+    }
+    .chat-section {
+        height: calc(100vh - 174px) !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .chat-conversation {
+        max-height: calc(100vh - 174px) !important;
+    }
+    .chat-section {
+        height: calc(100vh - 174px) !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .chat-conversation {
+        max-height: calc(100vh - 190px) !important;
+    }
+    .chat-section {
+        height: calc(100vh - 190px) !important;
+    }
+}
+
+.chat-input {
+    background: #fff;
+}
+
+.chat-conversation {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    overflow: auto;
+    max-height: calc(100vh - 224px);
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat-section {
+    position: relative;
+    height: calc(100vh - 224px);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.dropdown-content-hidden {
+    display: none;
+}
+
+.dropdown-content .item {
+    display: block;
+}

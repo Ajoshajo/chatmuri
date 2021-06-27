@@ -554,7 +554,7 @@
   ),
   'queue' => 
   array (
-    'default' => 'database',
+    'default' => 'sync',
     'connections' => 
     array (
       'sync' => 

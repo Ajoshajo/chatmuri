@@ -74,10 +74,10 @@ export default {
       color: "danger",
     };
   },
-  created(){
-      if(window.token){
-          this.$router.replace({name:'home'})
-      }
+  created() {
+    if (window.token) {
+      this.$router.replace({ name: "home" });
+    }
   },
   computed: {
     loginDisabled() {
@@ -104,14 +104,14 @@ export default {
           this.$swal({
             title: res.data.message,
             toast: true,
-            position: "top-end",
+            position: "top-center",
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
             icon: "success",
           });
           this.$store.dispatch("login", res.data);
-          this.$router.replace({name:'home'})
+          this.$router.replace({ name: "home" });
         })
         .catch((err) => {
           console.log(err);
