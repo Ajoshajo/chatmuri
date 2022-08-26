@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ChatController;
+use App\Http\Controllers\Api\ConversationController;
 use App\Http\Controllers\Api\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,11 @@ Route::prefix('v1')->group(function () {
         Route::get('/user', function (Request $request) {
             return response()->json($request->user());
         })->name('user');
+
+        Route::get('/conversations',[ConversationController::class,'conversations']);
+
         Route::post('message/send', [ChatController::class, 'store']);
         Route::get('chats', [ChatController::class, 'index']);
+        Route::post('message/delivered/{message}', [ChatController::class, 'delivered']);
     });
 });

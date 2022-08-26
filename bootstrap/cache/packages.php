@@ -84,4 +84,15 @@
       0 => 'Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider',
     ),
   ),
+  'weidner/goutte' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Weidner\\Goutte\\GoutteServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Goutte' => 'Weidner\\Goutte\\GoutteFacade',
+    ),
+  ),
 );

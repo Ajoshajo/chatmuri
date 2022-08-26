@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user != null" class="d-flex flex-column justify-content-between">
+  <div v-if="user != null" class="chat-screen">
     <div class="new-card p-4">
       <div class="d-flex align-items-center justify-content-between">
         <vs-avatar primary>
@@ -12,103 +12,175 @@
             <vs-avatar badge badge-color="success">
               <i class="bx bx-user"></i>
             </vs-avatar>
-            <div v-if="!menuhidden" class="new-card p-3 dropdown-content">
-              <div>{{ user.name }}</div>
-              <div>{{ user.email }}</div>
+            <transition name="fade">
+              <div v-if="!menuhidden" class="new-card p-3 dropdown-content">
+                <div>{{ user.name }}</div>
+                <div>{{ user.email }}</div>
 
-              <vs-button v-on:click="logout">Logout</vs-button>
-            </div>
+                <vs-button v-on:click="logout">Logout</vs-button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
     </div>
-    <div class="mh-100 chat-section">
-      <div
-        class="chat-conversation align-self-end p-3"
-        data-simplebar-auto-hide="true"
-      >
-        <ul class="chat-list">
-          <li
-            v-for="message in messages"
-            :key="message.id"
-            :class="{ right: user.id == message.user_id }"
-          >
-            <div class="conversation-list">
-              <vs-avatar class="chat-avatar">
-                <i class="bx bx-user"></i>
-              </vs-avatar>
+    <div
+      :style="[conversations ? { overflow: 'hidden' } : {}]"
+      style="height: 100%"
+      class="row"
+    >
+      <transition name="zoom-fade" mode="in-out" appear>
+        <div
+          class="col-md-4 pr-4 pr-md-2"
+          style="
+            height: 100%;
+            width: 100%;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-flow: column;
+            background-color: white;
+            z-index: 1;
+          "
+          :class="{ 'd-sm-none d-none d-md-block': hideBar }"
+        >
+          <h5 class="font-size-16 mb-0 text-truncate p-2 text-center">
+            Conversations
+          </h5>
 
-              <div class="user-chat-content">
-                <div class="ctext-wrap">
-                  <div class="ctext-wrap-content">
-                    <p class="mb-0">{{ message.message }}</p>
-                    <p class="chat-time mb-0">
-                      <i class="ri-time-line align-middle"></i>
-                      <span class="align-middle">{{ message.created_at }}</span>
-                    </p>
+          <div class="">
+            <div class="pl-2">
+              <div v-for="conversation in conversations" :key="conversation.id">
+                <div
+                  class="
+                    mb-1
+                    pl-2
+                    d-flex
+                    align-items-center
+                    justify-content-start
+                  "
+                  style="
+                    background-color: #f7f7fc;
+                    border-radius: 0.5rem !important;
+                  "
+                  @click="openChat(conversation)"
+                >
+                  <vs-avatar primary>
+                    <i class="bx bx-user"></i>
+                  </vs-avatar>
+                  <div class="d-flex flex-column justify-content-around pl-2">
+                    <div>{{ conversation.receiver.name }}</div>
+                    <div style="font-size: 0.8rem">
+                      {{ conversation.receiver.email }}
+                    </div>
                   </div>
                 </div>
-                <div class="conversation-name">{{ message.user.name }}</div>
               </div>
             </div>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </div>
+      </transition>
+      <router-view
+        @toggleHideBar="() => (this.hideBar = !this.hideBar)"
+        :key="$route.params.id"
+        class="col-md-8"
+        :class="{ 'd-sm-none d-none d-md-block': !hideBar }"
+      >
+      </router-view>
     </div>
-    <div class="footer fixed-bottom new-card p-3 p-lg-4 mb-0">
-      <div class="d-flex align-items-center justify-content-between">
-        <!-- <div class="pr-2 mw-100"> -->
-        <input-vs
-          placeholder="Type your message"
-          class="pr-2"
-          v-model="newMessage"
-        ></input-vs>
-        <!-- </div> -->
-        <vs-button border @click="send">
-          <i class="bx bxs-paper-plane"></i> Send
-        </vs-button>
+
+    {{ isUserTyping }}
+    <!-- <div class="chat-conversation p-3">
+      <div>
+        <infinite-loading
+          v-if="messages.length"
+          force-use-infinite-wrapper=".chat-conversation"
+          web-component-name="conversation"
+          spinner="spiral"
+          direction="top"
+          :distance="40"
+          @infinite="loadMore"
+        >
+        </infinite-loading>
+        <span>
+          <div
+            v-for="message in messages"
+            :key="message.id"
+            style="margin-bottom: 20px"
+          >
+            {{ message.message }}
+          </div>
+        </span>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
 import InputVs from "../components/InputVs";
-import simplebar from "simplebar-vue";
+import Conversation from "../components/Conversation";
+import InfiniteLoading from "vue-infinite-loading";
 export default {
   components: {
-    simplebar,
+    Conversation,
     InputVs,
+    InfiniteLoading,
   },
   data() {
     return {
       menuhidden: true,
-      newMessage: "",
-      messages: [],
+      conversations: [],
+      typing: "",
+      usertyping: "",
+      date: null,
+      hideBar: false,
     };
   },
   computed: {
     user: function () {
       return this.$store.getters.getUser;
     },
+    isUserTyping: function () {
+      return this.usertyping;
+    },
   },
   methods: {
-    send() {
-      if (this.newMessage != "") {
-        axios
-          .post("message/send", { message: this.newMessage })
-          .then((res) => {
-            this.messages.push({
-              id: res.data.id,
-              user: this.user,
-              user_id: res.data.message.user_id,
-              message: res.data.message.message,
-              created_at: res.data.message.created_at,
-            });
-          })
-          .catch();
-
-        this.newMessage = "";
+    openChat(chat) {
+      this.$router
+        .push({
+          name: "chatpage",
+          params: {
+            id: chat.id,
+            conversation: chat,
+          },
+        })
+        .catch(() => {});
+      this.hideBar = !this.hideBar;
+    },
+    closeMenu(e) {
+      if (!this.$el.contains(e.target)) {
+        console.log("close");
+        this.menuhidden = true;
       }
+    },
+    loadMore(state) {
+      console.log("Loaded");
+      state.complete();
+    },
+
+    loadConverSations() {
+      axios.get("conversations").then((res) => {
+        console.log(res.data);
+        this.conversations = res.data;
+      });
+    },
+    isTyping(e) {
+      let channel = Echo.private("chat");
+
+      setTimeout(() => {
+        channel.whisper("typing", {
+          typing: this.user.name + " is Typing",
+        });
+      }, 1200);
     },
     logout() {
       this.$store.dispatch("logout");
@@ -116,29 +188,48 @@ export default {
       this.$router.replace({ name: "login" });
     },
   },
-  mounted() {
+  created() {
+    this.hideBar = this.$route.params.id != undefined ? true : false;
+    this.loadConverSations();
     const loading = this.$vs.loading();
     axios
       .get("chats")
       .then((res) => {
-        this.messages = res.data;
+        // this.messages = res.data.data.slice().reverse();
         loading.close();
       })
       .catch((err) => {
-        console.log(err.response);
+        // console.log(err.response);
         loading.close();
       });
 
-    Echo.private("chat").listen("MessageSentEvent", (e) => {
-      console.log(e);
-      this.messages.push({
-        id: e.message.id,
-        message: e.message.message,
-        created_at: e.message.created_at,
-        user: e.user,
-        user_id: e.user.id,
+    Echo.private("chat")
+      .listen("MessageSentEvent", (e) => {
+        // this.messages = [
+        //   ...this.messages,
+        //   {
+        //     id: e.message.id,
+        //     message: e.message.message,
+        //     date: e.message.date,
+        //     time: e.message.time,
+        //     user: e.user,
+        //     user_id: e.user.id,
+        //     status: e.message.status,
+        //   },
+        // ];
+        axios.post("message/delivered/" + e.message.id);
+      })
+      .listen("MessageDeliveredEvent", (e) => {
+        const m = _.find(this.messages, { id: e.message.id });
+        m.status = e.message.status;
+      })
+      .listenForWhisper("typing", (e) => {
+        this.usertyping = e.typing;
+
+        setTimeout(() => {
+          this.usertyping = "";
+        }, 1200);
       });
-    });
   },
 };
 </script>

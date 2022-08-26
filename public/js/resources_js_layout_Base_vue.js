@@ -561,7 +561,7 @@ var render = function() {
               _c(
                 "transition",
                 { attrs: { name: "slide-fade", mode: "out-in" } },
-                [_c("router-view")],
+                [_c("router-view", { key: _vm.$route.fullPath })],
                 1
               ),
               _vm._v(" "),

@@ -5,7 +5,7 @@
         <div class="col-10 col-lg-5 col-xl-5 col-md-6">
           <div class="text-center mb-4">
             <transition name="slide-fade" mode="out-in">
-              <router-view />
+              <router-view :key ='$route.fullPath'/>
             </transition>
 
             <div class="mt-5 text-center">

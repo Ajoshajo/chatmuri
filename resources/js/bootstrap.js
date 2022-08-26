@@ -39,8 +39,10 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: false,
     disableStats: true,
-    wsHost: window.location.hostname,
+    wsHost: 'localhost',
     wsPort: 6001,
+    encrypted: false,
+    enabledTransports: ['ws'],
     auth: {
         headers: {
             Authorization: 'Bearer ' + token

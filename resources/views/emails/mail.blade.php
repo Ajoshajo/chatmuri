@@ -1,28 +1,19 @@
 @component('mail::message')
-# Hello {{ $user->name }},
-
-This is from KSCSA technical team
-
-Please use this url to login to your exam portal : https://entrance.kscsaexam.com/
-
-(to appear for the entrance test on 21/06/2021, Monday)
+# Hello candidate,
 
 Your username : {{ $user->email }}
 
 Your password : {{ $user->rollno }}
 
-Your exam starts by 11am and  ends by 3pm (21/06/2021)
 
-Exam duration: 120mins
+Please use this url to login to your exam portal : https://kscsaexam.com/
 
-@component('mail::button', ['url' => 'https://entrance.kscsaexam.com/'])
+
+@component('mail::button', ['url' => 'https://kscsaexam.com/'])
 Exam Portal
 @endcomponent
 
-For any technical queries, please contact
-9895065829
-8589920904
+Thank you
 
-Thanks and regards,<br>
-KSCSA TECHNICAL TEAM
+All the very best for your exam
 @endcomponent

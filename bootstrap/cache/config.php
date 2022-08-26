@@ -6,7 +6,7 @@
     'debug' => true,
     'url' => 'http://chat.test',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
@@ -36,11 +36,12 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\BroadcastServiceProvider',
-      25 => 'App\\Providers\\EventServiceProvider',
-      26 => 'App\\Providers\\RouteServiceProvider',
+      22 => 'Weidner\\Goutte\\GoutteServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\BroadcastServiceProvider',
+      26 => 'App\\Providers\\EventServiceProvider',
+      27 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -80,6 +81,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'Goutte' => 'Weidner\\Goutte\\GoutteFacade',
     ),
   ),
   'auth' => 
@@ -137,11 +139,11 @@
         'options' => 
         array (
           'cluster' => 'mt1',
-          'host' => '127.0.0.1',
-          'port' => 6001,
+          'host' => 'localhost',
+          'port' => '6001',
           'useTLS' => false,
           'scheme' => 'http',
-          'encrypted' => true,
+          'encrypted' => false,
         ),
       ),
       'ably' => 
@@ -271,7 +273,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'admin_chat',
+        'database' => 'chat',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -279,11 +281,11 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '3.139.148.117',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'admin_chat',
-        'username' => 'admin_chat',
-        'password' => 'Ajoshajo1997',
+        'database' => 'chat',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -299,11 +301,11 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '3.139.148.117',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'admin_chat',
-        'username' => 'admin_chat',
-        'password' => 'Ajoshajo1997',
+        'database' => 'chat',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -314,11 +316,11 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '3.139.148.117',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'admin_chat',
-        'username' => 'admin_chat',
-        'password' => 'Ajoshajo1997',
+        'database' => 'chat',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -741,6 +743,13 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
+  ),
+  'goutte' => 
+  array (
+    'client' => 
+    array (
+      'max_redirects' => 0,
+    ),
   ),
   'trustedproxy' => 
   array (

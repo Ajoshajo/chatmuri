@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Student;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -34,11 +35,24 @@ class ImportJob implements ShouldQueue
         // $collection = (new FastExcel)->import('file.xlsx');
         $this->collection->each(function ($line) {
 
-            $password = hash('sha512', $line['Reg Num']);
-            $gender = $line['Gender'] == 'female' ? 1 : 0;
+            $password = hash('sha512', trim($line['Register Number']));
+            // $gender = $line['Gender'] == 'Female' ? 1 : 0;
+            $gender = 0;
+            // dd($line['Register Number']);
+            echo $line['Register Number'];
 
-            DB::table('student')->insertOrIgnore(['rollno' => $line['Reg Num'], 'name' => $line['Name'], 'email' => $line['Email id'],  'password' => $password, 'active' => 2, 'classesID' => 4, 'gender' => $gender, 'phone' => $line['Ph No']]);
+            DB::table('student')->insertOrIgnore(['rollno' => $line['Register Number'], 'name' => $line['Name'], 'email' => $line['email id'],  'password' => $password, 'active' => 2, 'classesID' => 10, 'gender' => 0, 'phone' => $line['Phone number']]);
             // return false;
         });
+        // $this->collection->each(function ($s){
+        //     $ss= Student::whereEmail($s['Email Address'])->first();
+        //     if($ss){
+        //         $ss->update(['classesID'=>8]);
+        //     }
+        // });
+        // Student::each(function ($s) {
+        //     $s->update(['classesID' => 10]);
+        // });
+        // echo $this->collection->count();
     }
 }

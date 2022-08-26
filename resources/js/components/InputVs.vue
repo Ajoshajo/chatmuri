@@ -6,12 +6,13 @@
           :type="type"
           class="input-vs"
           @input="handleInput"
+          @keyup="onChange"
           :class="{ 'input-vs--has-icon': isIcon }"
-          v-model="invalue"
           :value="value"
+          :disabled="disabled"
         />
         <label
-          v-if="invalue == ''"
+          v-if="this.value == ''"
           class="label-vs"
           :class="{ 'label-vs--placeholder': getlabelPlaceholder }"
           >{{ labelPlaceholder || placeholder }}</label
@@ -26,7 +27,7 @@
 </template>
 <script>
 export default {
-  props: ["type", "placeholder", "label-placeholder",'value'],
+  props: ["type", "placeholder", "label-placeholder", "value","disabled"],
   name: "input-vs",
   computed: {
     getlabelPlaceholder() {
@@ -36,14 +37,12 @@ export default {
       return this.$slots.icon != undefined;
     },
   },
-  data() {
-    return {
-      invalue: this.value,
-    };
-  },
   methods: {
     handleInput(e) {
-      this.$emit("input", this.invalue);
+      this.$emit("input", e.target.value);
+    },
+    onChange(e) {
+      this.$emit("change", e.target.value);
     },
   },
 };

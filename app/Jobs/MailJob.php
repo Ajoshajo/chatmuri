@@ -33,12 +33,14 @@ class MailJob implements ShouldQueue
      */
     public function handle()
     {
-        $st = Student::leftJoin('online_exam_user_status', function ($join) {
-            $join->on('student.id', '=', 'online_exam_user_status.userID');
-        })
-        ->where('id', '>', 38)
-            ->whereNull('online_exam_user_status.userID')
-            ->get();
+        // $st = Student::leftJoin('online_exam_user_status', function ($join) {
+        //     $join->on('student.id', '=', 'online_exam_user_status.userID');
+        // })
+        // ->where('id', '>', 38)
+        //     ->whereNull('online_exam_user_status.userID')
+        //     ->get();
+        $st = Student::where('classesID',10)->get();
+        // dd($st->count());
         foreach ($st as $key => $s) {
             Maila::to($s->email)->send(new Mail($s));
             Log::info("sent to " . $s->id . ' ' . $key);

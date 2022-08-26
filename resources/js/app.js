@@ -14,11 +14,16 @@ import router from './routes'
 import Vuesax from 'vuesax'
 import VueSweetalert2 from 'vue-sweetalert2'
 import store from './store'
+import linkify from 'vue-linkify'
+import VueChatScroll from 'vue-chat-scroll'
+
+Vue.directive('linkified', linkify)
 
 
 Vue.use(Vuesax)
 Vue.use(VueCompositionApi)
 Vue.use(VueSweetalert2)
+Vue.use(VueChatScroll)
 
 window.axios.defaults.baseURL = '/api/v1/'
 const token = localStorage.getItem('token')

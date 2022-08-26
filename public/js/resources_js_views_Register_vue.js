@@ -37,8 +37,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["type", "placeholder", "label-placeholder", 'value'],
+  props: ["type", "placeholder", "label-placeholder", "value", "disabled"],
   name: "input-vs",
   computed: {
     getlabelPlaceholder: function getlabelPlaceholder() {
@@ -48,14 +49,12 @@ __webpack_require__.r(__webpack_exports__);
       return this.$slots.icon != undefined;
     }
   },
-  data: function data() {
-    return {
-      invalue: this.value
-    };
-  },
   methods: {
     handleInput: function handleInput(e) {
-      this.$emit("input", this.invalue);
+      this.$emit("input", e.target.value);
+    },
+    onChange: function onChange(e) {
+      this.$emit("change", e.target.value);
     }
   }
 });
@@ -395,99 +394,15 @@ var render = function() {
   return _c("div", { staticClass: "input-main" }, [
     _c("div", { staticClass: "input-parent" }, [
       _c("div", { staticClass: "content-vs" }, [
-        _vm.type === "checkbox"
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.invalue,
-                  expression: "invalue"
-                }
-              ],
-              staticClass: "input-vs",
-              class: { "input-vs--has-icon": _vm.isIcon },
-              attrs: { type: "checkbox" },
-              domProps: {
-                value: _vm.value,
-                checked: Array.isArray(_vm.invalue)
-                  ? _vm._i(_vm.invalue, _vm.value) > -1
-                  : _vm.invalue
-              },
-              on: {
-                input: _vm.handleInput,
-                change: function($event) {
-                  var $$a = _vm.invalue,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = _vm.value,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.invalue = $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        (_vm.invalue = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
-                    }
-                  } else {
-                    _vm.invalue = $$c
-                  }
-                }
-              }
-            })
-          : _vm.type === "radio"
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.invalue,
-                  expression: "invalue"
-                }
-              ],
-              staticClass: "input-vs",
-              class: { "input-vs--has-icon": _vm.isIcon },
-              attrs: { type: "radio" },
-              domProps: {
-                value: _vm.value,
-                checked: _vm._q(_vm.invalue, _vm.value)
-              },
-              on: {
-                input: _vm.handleInput,
-                change: function($event) {
-                  _vm.invalue = _vm.value
-                }
-              }
-            })
-          : _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.invalue,
-                  expression: "invalue"
-                }
-              ],
-              staticClass: "input-vs",
-              class: { "input-vs--has-icon": _vm.isIcon },
-              attrs: { type: _vm.type },
-              domProps: { value: _vm.value, value: _vm.invalue },
-              on: {
-                input: [
-                  function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.invalue = $event.target.value
-                  },
-                  _vm.handleInput
-                ]
-              }
-            }),
+        _c("input", {
+          staticClass: "input-vs",
+          class: { "input-vs--has-icon": _vm.isIcon },
+          attrs: { type: _vm.type, disabled: _vm.disabled },
+          domProps: { value: _vm.value },
+          on: { input: _vm.handleInput, keyup: _vm.onChange }
+        }),
         _vm._v(" "),
-        _vm.invalue == ""
+        this.value == ""
           ? _c(
               "label",
               {

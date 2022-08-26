@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageDeliveredEvent;
+use App\Events\MessageSentEvent;
 use App\Models\Message;
 use Illuminate\Http\Request;
-use App\Events\MessageSentEvent;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
@@ -16,7 +17,10 @@ class MessageController extends Controller
 
     public function index()
     {
-        return Message::with('user')->get();
+        $user = AUth::user();
+        $msg = Message::with('user')->get();
+        Message::where('user_id', '!=', $user->id)->update(['status' => 1]);
+        return $msg;
     }
 
     public function store(Request $request)
@@ -34,4 +38,6 @@ class MessageController extends Controller
             'user' => $user,
         ];
     }
+
+    
 }

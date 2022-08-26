@@ -9,13 +9,15 @@
         "beyondcode/laravel-websockets": "^1.12",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "google/cloud-storage": "^1.24",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "pusher/pusher-php-server": "^5.0",
-        "rap2hpoutre/fast-excel": "^3.0"
+        "rap2hpoutre/fast-excel": "^3.0",
+        "weidner/goutte": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

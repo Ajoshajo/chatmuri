@@ -48,6 +48,27 @@
 }
 
 // ///////////////////////////////////////////////
+// Page Slide One
+// ///////////////////////////////////////////////
+.slide-one-fade-enter-active {
+    transition: opacity 0.3s, transform 0.35s;
+}
+
+.slide-one-fade-leave-active {
+    // transition: opacity 0.1s, transform 0.1s;
+}
+
+.slide-one-fade-enter {
+    opacity: 0;
+    transform: translateX(30%);
+}
+
+.slide-one-fade-leave-to {
+    opacity: 0;
+    transform: translateX(30%);
+}
+
+// ///////////////////////////////////////////////
 // Zoom Out
 // ///////////////////////////////////////////////
 .zoom-out-enter-active,

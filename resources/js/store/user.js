@@ -38,6 +38,8 @@ const mutations = {
         window.token = data.token
         window.axios.defaults.headers.common['Authorization'] = "Bearer " +
             data.token
+        window.Echo.connector.pusher.config.auth.headers['Authorization'] = "Bearer " +
+            data.token
     },
     logout() {
         state.user = null

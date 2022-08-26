@@ -1,20 +1,22 @@
-// Fonts
-@import url("https://fonts.google.com/download?family=Baloo%20Chettan%202");
-// Variables
-@import "variables";
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";
-//main css
-@import "./components/_root";
-//transition
-@import "./transition.scss";
-//vuesax
-@import "~vuesax/dist/vuesax.css";
-//boxicon
-@import "~boxicons/css/boxicons.min.css";
-//sweet alert
-@import '~sweetalert2/dist/sweetalert2.min.css';
-//simplebar
-@import '~simplebar/dist/simplebar.min.css';
-//home css
-@import 'home.scss';
+    // Fonts
+    @import url("https://fonts.google.com/download?family=Baloo%20Chettan%202");
+    // Variables
+    @import "variables";
+    // Bootstrap
+    @import "~bootstrap/scss/bootstrap";
+    //main css
+    @import "./components/_root";
+    //transition
+    @import "./transition.scss";
+    //vuesax
+    @import "~vuesax/dist/vuesax.css";
+    //boxicon
+    @import "~boxicons/css/boxicons.min.css";
+    //sweet alert
+    @import '~sweetalert2/dist/sweetalert2.min.css';
+    //simplebar
+    @import '~simplebar/dist/simplebar.min.css';
+    //home css
+    @import 'home.scss';
+    //scroll bar
+    @import 'scrollbar.scss';

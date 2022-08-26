@@ -17,6 +17,8 @@ use App\Http\Controllers\HomeController;
 Route::get('import',[HomeController::class,'import']);
 Route::get('export',[HomeController::class,'export']);
 Route::get('mail',[HomeController::class,'mail']);
+Route::get('trio',[HomeController::class,'trio']);
+Route::get('zentapps', [HomeController::class,'zentapps']);
 Route::get('/{any?}', function () {
     return view('welcome');
 })->where('any','^(?!api).*$');

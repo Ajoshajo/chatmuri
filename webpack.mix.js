@@ -14,9 +14,9 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css');
-mix.options({
-    hmrOptions: {
-        host: '192.168.0.108',
-        port: 8001
-    }
-})
+// mix.options({
+//     hmrOptions: {
+//         host: '192.168.0.108',
+//         port: 8001
+//     }
+// })
